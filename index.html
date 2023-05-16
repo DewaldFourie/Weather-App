@@ -18,8 +18,23 @@
         </div>
         <div class="main-middle">
             <div class="middle-left">
-                <input type="text" id="location-in">
-                <button class="searchBtn">Search</button>
+                <div class="form-control">
+                    <input type="value" id="location-in" required="">
+                    <label>
+                        <span style="transition-delay:0ms">L</span><span 
+                        style="transition-delay:50ms">o</span><span 
+                        style="transition-delay:100ms">c</span><span 
+                        style="transition-delay:150ms">a</span><span 
+                        style="transition-delay:200ms">t</span><span 
+                        style="transition-delay:250ms">i</span><span 
+                        style="transition-delay:300ms">o</span><span 
+                        style="transition-delay:350ms">n</span>
+                    </label>
+                </div>
+                <a href="#" class="searchBtn"> Search</a>
+                <div class="logoDiv">
+                    <img class="weather-logo" src="assets/weather.jpg" alt="logo">
+                </div>
             </div>
             <div class="middle-right">
                 <div class="outDiv locDiv">
@@ -32,12 +47,27 @@
                     <span class="time-text">Time:</span>
                     <span id="time"></span>
                 </div>
-                <div class="outDiv conDiv">
-                    <span id="temp"></span>
-                    <span id="conditions"></span>
+                <div class="conDiv">
                     <img  id="icon" alt="">
+                    <div class="conText">
+                        <span id="temp"></span>
+                        <span id="conditions"></span>
+                    </div>
+                    <div class="windText">
+                        <span>Wind Speed:</span>
+                        <span>Direction:</span>
+                    </div>
+                    <div class="windData">
+                        <span id="windSpeed"></span>
+                        <span id="windDir"></span>
+                    </div>
                 </div>
-                <span id="update"></span>
+                <div class="updateDiv">
+                    <a href="#" class="refreshBtn"> Refresh</a>
+                    <span class="updateText">Last Update:</span>
+                    <span id="update"></span>
+                </div>
+                
             </div>
         </div>
     </div>

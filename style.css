@@ -1,6 +1,6 @@
 
 body {
-    background-color: rgb(249, 249, 249);
+    background-image: url("assets/sunny.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -8,15 +8,17 @@ body {
 }
 
 .main {
+    color: aliceblue;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vh;
-    background-color: rgb(192, 192, 192);
+    background-color: rgba(35, 35, 35, 0.7);
     display: grid;
     grid-template-rows: 2fr 11fr;
+    border-radius: 40px;
 }
 
 /* TOP */
@@ -24,7 +26,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
 }
 
 .button {
@@ -44,7 +45,7 @@ body {
 
 .slider {
     display: block;
-    font-size: 10px;
+    font-size: 15px;
     position: relative;
 }
 
@@ -52,7 +53,7 @@ body {
     content: '°C';
     width: 25px;
     height: 25px;
-    background-color: #e03c3c;
+    background-color: #056dff;
     border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, .25);
@@ -67,7 +68,7 @@ body {
 
 #toggle:checked + .slider::after {
     content: '°F';
-    background-color: #05ae3e;
+    background-color: #001059;
     transform: translateX(25px) rotate(360deg);
 }
 
@@ -79,28 +80,99 @@ body {
 
 /* Middle Left */
 .middle-left {
-    border: solid;
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 30px;
+    gap: 10px;
+    margin-top: 1rem;
 }
 
-#location-in {
-
+.form-control {
+    position: relative;
+    margin: 20px 0 10px;
+    width: 190px;
 }
 
-.searchBtn {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    color: #fff;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: rgb(199, 228, 238);
+    transform: translateY(-30px);
+}
+
+.searchBtn:link,
+.searchBtn:visited {
+    text-decoration: none;
+    color: rgb(243, 243, 243);
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+.searchBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.searchBtn:active {
+    transform: translateY(-3px);
+}
+
+
+.searchBtn:hover::after {
+    background-color: rgb(0, 238, 255);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+}
+
+.logoDiv {
+    margin-top: 4rem;
+    margin-left: 6rem;
+}
+
+.weather-logo{
+    width: 18rem;
+    height: 10rem;
+    border-radius: 3rem;
 }
 
 /* Middle Right */
 .middle-right {
-    border: solid;
     width: 70%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -110,10 +182,33 @@ body {
 .outDiv {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.locDiv {
+    margin-left: 8rem;
+    margin-top: 2rem;
+}
+
+.curTime {
+    margin-left: 12rem;
+    margin-top: 2rem;
+}
+
+#location-out {
+    font-size: 60px;
+}
+
+#country {
+    font-size: 20px;
 }
 
 .conDiv {
     grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 #icon {
@@ -121,11 +216,64 @@ body {
     width: 100px;
 }
 
-#location-out {
-    font-size: 35px;
+.conText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 25px;
+    margin-right: 50px;
 }
 
-#country {
+.windText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 20px;
 }
 
+.windData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.updateDiv {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.refreshBtn:link,
+.refreshBtn:visited {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    padding: 5px 20px;
+    border: 1px solid;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.refreshBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.refreshBtn:active {
+    transform: translateY(-3px);
+}
+
+
+.refreshBtn:hover::after {
+    background-color: rgb(0, 238, 255);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+}
