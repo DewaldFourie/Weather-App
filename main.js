@@ -15,7 +15,7 @@ let $searchBtn = document.querySelector(".searchBtn");
 let $toggle = document.getElementById("toggle");
 let $refreshBtn = document.querySelector(".refreshBtn");
 
-
+// function to set the current data received from the get function on the DOM elements
 function setWeatherData(data){
     $location.textContent = data.location;
     $country.textContent = data.country;
@@ -65,6 +65,7 @@ function setWeatherData(data){
     }) 
 }
 
+// async function to get the current weather data
 async function getWeatherData(location){
     let URLtext = `https://api.weatherapi.com/v1/current.json?key=${KEY}&q=${location}`;
     console.log(location)
@@ -95,7 +96,7 @@ async function getWeatherData(location){
     }
 }
 
-
+// search button functionality that operates on user input.
 $searchBtn.addEventListener("click", () => {
     getWeatherData($location_input.value).then(weatherData => {
         setWeatherData(weatherData);
@@ -103,6 +104,7 @@ $searchBtn.addEventListener("click", () => {
     $location_input.value = "";
 });
 
+// refresh button functionality, calls the stored last location and refreshes the data values.
 $refreshBtn.addEventListener("click", () => {
     const lastLocation = localStorage.getItem("lastLocation");
     if (lastLocation) {
@@ -116,9 +118,8 @@ $refreshBtn.addEventListener("click", () => {
     }
 });
 
-
-
-getWeatherData("Dublin").then(weatherData => {
+// default location on start up.
+getWeatherData("Pretoria").then(weatherData => {
     console.log(weatherData);
     setWeatherData(weatherData);
 });
