@@ -1,4 +1,11 @@
 
+@font-face {
+    font-family: 'myFont';
+    src: url('./assets/weatherAppFont.ttf') format('woff');
+    font-style: normal;
+    font-weight: bold;
+}
+
 body {
     background-image: url("assets/sunny.jpg");
     background-size: cover;
@@ -8,6 +15,7 @@ body {
 }
 
 .main {
+    font-family: myFont;
     color: aliceblue;
     position: absolute;
     top: 50%;
@@ -26,6 +34,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.heading {
+    font-size: 40px;
+    margin-bottom: 0;
 }
 
 .button {
@@ -134,6 +147,7 @@ body {
 
 .searchBtn:link,
 .searchBtn:visited {
+    font-weight: bold;
     text-decoration: none;
     color: rgb(243, 243, 243);
     padding: 10px 30px;
@@ -191,8 +205,9 @@ body {
 }
 
 .curTime {
-    margin-left: 12rem;
+    margin-left: 16rem;
     margin-top: 2rem;
+    font-size: 15px;
 }
 
 #location-out {
@@ -220,7 +235,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 25px;
+    font-size: 30px;
     margin-right: 50px;
 }
 
@@ -228,15 +243,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 2rem;
 }
 
 .windData {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 20px;
+    font-size: 22px;
     margin-left: 20px;
+    justify-content: center;
 }
 
 .updateDiv {
@@ -252,6 +269,7 @@ body {
 .refreshBtn:link,
 .refreshBtn:visited {
     text-decoration: none;
+    font-weight: bold;
     color: rgb(230, 230, 230);
     padding: 5px 20px;
     border: 1px solid;

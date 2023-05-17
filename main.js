@@ -28,15 +28,31 @@ function setWeatherData(data){
     $icon.src = data.icon;
     $lastUpdate.textContent = data.lastUpdate
     if (data.isDay === 1){
-        if(data.code === 1000){
+        if(data.code < 1006){
             console.log("sunny");
+            document.body.style.backgroundImage = "url('assets/sunny.jpg')";
+        }
+        else if (data.code > 1005 && data.code < 1100){
+            console.log("clouds");
+            document.body.style.backgroundImage = "url('assets/overcast.jpg')";
+            console.log("rainy")
+        }
+        else if (data.code > 1149 && data.code < 1202 || data.code > 1239 && data.code < 1250){
+            console.log("rain");
+            document.body.style.backgroundImage = "url('assets/rain.jpg')";
+        }
+        else if (data.code === 1087 || data.code > 1270){
+            console.log("thunder");
+            document.body.style.backgroundImage = "url('assets/thunder.jpg')";
         }
         else {
-            console.log("oops");
+            document.body.style.backgroundImage = "url('assets/snow.jpg')";
         }
     }
     else{
         console.log("night");
+        document.body.style.backgroundImage = "url('assets/night.jpg')";
+        
     }   
     $toggle.addEventListener("click", () => {
         if($toggle.checked) {
