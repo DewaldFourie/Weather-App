@@ -32,11 +32,6 @@ function setWeatherData(data){
             console.log("sunny");
             document.body.style.backgroundImage = "url('assets/sunny.jpg')";
         }
-        else if (data.code > 1005 && data.code < 1100){
-            console.log("clouds");
-            document.body.style.backgroundImage = "url('assets/overcast.jpg')";
-            console.log("rainy")
-        }
         else if (data.code > 1149 && data.code < 1202 || data.code > 1239 && data.code < 1250){
             console.log("rain");
             document.body.style.backgroundImage = "url('assets/rain.jpg')";
@@ -44,6 +39,10 @@ function setWeatherData(data){
         else if (data.code === 1087 || data.code > 1270){
             console.log("thunder");
             document.body.style.backgroundImage = "url('assets/thunder.jpg')";
+        }
+        else if (data.code > 1005 && data.code < 1100){
+            console.log("clouds");
+            document.body.style.backgroundImage = "url('assets/overcast.jpg')";
         }
         else {
             document.body.style.backgroundImage = "url('assets/snow.jpg')";

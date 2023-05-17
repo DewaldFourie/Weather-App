@@ -229,6 +229,7 @@ body {
 #icon {
     height: 100px;
     width: 100px;
+    margin-left: 3rem;
 }
 
 .conText {
@@ -236,7 +237,7 @@ body {
     flex-direction: column;
     justify-content: center;
     font-size: 30px;
-    margin-right: 50px;
+    margin-right: 2px;
 }
 
 .windText {
